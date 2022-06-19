@@ -1,18 +1,21 @@
-import pandas_datareader.data as web
 import datetime
+import pandas_datareader.data as web
+import pandas as pd
 from datetime import date
 from datetime import timedelta
-import pandas as pd
 
 today = date.today()
 yesterday = today - timedelta(days = 1) 
+weekago = today - timedelta(days = 7)
 
 tickers = ['TSLA', 'UAL']
-data = {}
-percent_change = {}
-for t in tickers:
-   data[t] = web.DataReader(t,'yahoo', yesterday, today ).reset_index()
-   percent_change[t] = ( data[t].Close - data[t].Open ) / (data[t].Open) * 100
+data = {"day":{}, "week": {}}
+percent_change = {"day": {}, "week": {}}
+for t in tickers: 
+    data["day"][t] = web.DataReader(t,'yahoo', yesterday, today)
+    data["week"][t] = web.DataReader(t,'yahoo', weekago, today)
+    percent_change["day"][t] = round(( data["day"][t].Close - data["day"][t].Open ) / (data["day"][t].Open) * 100 , 2)
+    percent_change["week"][t] = round(( data["week"][t].iloc[4].Close - data["week"][t].iloc[0].Open ) / (data["week"][t].iloc[0].Open) * 100, 2)
 
-print(percent_change['TSLA'])
-
+# print(data["day"])
+# print(percent_change["week"])

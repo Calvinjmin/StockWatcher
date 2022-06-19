@@ -6,7 +6,13 @@ import creds as cd
 sent_from = cd.gmail_user
 to = ['calvinjmin@gmail.com']
 subject = 'Automated Email'
-body = main.percent_change['TSLA']
+body = """
+Percent Changes - Day
+%s
+
+Percent Changes - Week (5d)
+%s
+""" % (main.percent_change["day"], main.percent_change["week"]) 
 
 # Email Template
 email_text = """\
