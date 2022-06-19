@@ -15,7 +15,7 @@ activate:
 
 # Send an Email using GMAIL STMP
 email:
-	./$(VENV)/bin/python3 daily_email.py 
+	./$(VENV)/bin/python3 gmail.py 
 
 # Running main.py script
 run: 
