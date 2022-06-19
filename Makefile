@@ -13,6 +13,10 @@ create:
 activate: 
 	. ./$(VENV)/bin/activate
 
+# Send an Email using GMAIL STMP
+email:
+	./$(VENV)/bin/python3 daily_email.py 
+
 # Running main.py script
 run: 
 	./$(VENV)/bin/python3 main.py
