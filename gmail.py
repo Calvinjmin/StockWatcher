@@ -12,6 +12,8 @@ msg['Subject'] = "STOCKS TODAY - %s" % (main.today)
 msg['From'] = cd.gmail_user
 msg['To'] = "calvinjmin@gmail.com"
 
+print("""<img src=\"./figures/Week-figure.png\"/> """)
+
 html = """\
 <html>
   <head></head>

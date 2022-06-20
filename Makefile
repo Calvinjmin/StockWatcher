@@ -4,14 +4,15 @@ VENV := venv
 # DEFAULT TARGET 
 all: run
 
-create:
+build:
 	python3 -m venv $(VENV)
 	pip install -r requriements.txt
+	mkdir figures
 	. ./$(VENV)/bin/activate
 
-# Activating VENV 
+# Activating VENV - DOES NOT WORK 
 activate: 
-	. ./$(VENV)/bin/activate
+	. ./sourceVenv.sh 	
 
 # Send an Email using GMAIL STMP
 email:
